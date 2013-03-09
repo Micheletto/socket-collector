@@ -43,7 +43,7 @@ i = options[:interval].to_i
 
 # Build objects
 st = Statsd.new()
-r  = (0..s.length)
+r  = (0..(s.length - 1))
 c  = Socket_counter.new(s)
 
 # Main
