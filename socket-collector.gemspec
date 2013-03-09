@@ -3,7 +3,7 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 Gem::Specification.new do |s|
   s.name          = 'socket-collector'
-  s.version       = '1.0.0'
+  s.version       = '1.0.1'
   s.summary       = 'Socket collector for statsd'
   s.description   = 'A statsd collector for TCP socket states.'
   s.authors       = ['Bob Micheletto']
