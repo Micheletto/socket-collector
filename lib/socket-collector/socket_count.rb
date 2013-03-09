@@ -37,7 +37,7 @@ class Socket_counter
     end
 
     @socks.each do |type|
-      c.push(h[type])
+      c.push(h[type] * 30) # Temporary hack rate sampling is fixed
     end
 
     # Return c
