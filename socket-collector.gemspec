@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.description   = 'A statsd collector for TCP socket states.'
   s.authors       = ['Bob Micheletto']
   s.email         = 'bobm@mozilla.com'
-  s.files         = ['bin/socket-collector.rb', 'lib/socket-collector/socket_count.rb', 'lib/socket-collector/statdsend.rb', 'LICENSE', 'README']
+  s.files         = ['bin/socket-collector.rb', 'lib/socket-collector/socket_count.rb', 'lib/socket-collector/statdsend.rb', 'LICENSE', 'README.md']
   s.executables   << 'socket-collector.rb'
   s.homepage      = 'https://github.com/Micheletto/socket-collector'
 end
