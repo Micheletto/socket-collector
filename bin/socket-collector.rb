@@ -28,6 +28,11 @@ optparse = OptionParser.new do |opts|
     options[:states] = s
   end
 
+  options[:application] = 'sockets'
+  opts.on( '-a', '--application APPLICATION', "Name of the application. Defaults to sockets.") do |a|
+    options[:application] = a
+  end
+
   opts.on( '-h', '--help', "Display help information.") do
     puts opts
     exit
@@ -42,6 +47,7 @@ s = options[:states].split(/,/)
 i = options[:interval].to_i
 
 # Build objects
+ma = options[:application]
 st = Statsd.new()
 r  = (0..(s.length - 1))
 c  = Socket_counter.new(s)
@@ -51,7 +57,7 @@ loop do
   
   n = c.count
   r.each do |x|
-    st.send("socket_count.#{s[x]}", n[x])
+    st.send("#{ma}.socket_count.#{s[x]}", n[x])
   end
 
   # Delay for interval
