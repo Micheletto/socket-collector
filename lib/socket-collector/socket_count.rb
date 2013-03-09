@@ -31,7 +31,7 @@ class Socket_counter
     h = Hash.new{ |k,v| h[v] = 0 }
     c = []
 
-    IO.foreach('/tmp/tcp') do |line|
+    IO.foreach('/proc/net/tcp') do |line|
       st = line.split(/\s+/, 6)[4]
       h[st] += 1
     end
