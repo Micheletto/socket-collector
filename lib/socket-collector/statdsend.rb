@@ -8,17 +8,12 @@ require "socket"
 # Class to make UDP connections to statsd, and send timers
 class Statsd
 
-  # Open connection to host and port.  Use sensible
-  # defaults of localhost and port 8125
-  def initialize(host="127.0.0.1", port="8125")
-    @usocket = UDPSocket.new
-    @usocket.connect(host, port)
-  end
-
   # Deliver counter to statsd
   def send (counter, data)
     # Send the message to statsd.
-    @usocket.send("#{counter}:#{data}|c", 0)
+    usocket = UDPSocket.new
+    usocket.connect('127.0.0.1', '8125')
+    usocket.send("#{counter}:#{data}|c", 0)
   end
 
 end
